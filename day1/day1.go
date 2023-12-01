@@ -69,7 +69,6 @@ var digits = map[string]uint64{
 }
 
 func getSpelledDigit(str string, i int) (uint64, bool) {
-
 	for k, v := range digits {
 		if len(str)-i < len(k) {
 			continue

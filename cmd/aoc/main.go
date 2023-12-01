@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/johningve/adventofcode2023"
 	_ "github.com/johningve/adventofcode2023/day1"
@@ -10,6 +11,8 @@ import (
 func main() {
 	solutions := adventofcode2023.Solutions()
 	results := make([]chan string, 0, len(solutions))
+
+	start := time.Now()
 
 	for _, solution := range solutions {
 		ch := make(chan string, 1)
@@ -23,4 +26,6 @@ func main() {
 	for _, ch := range results {
 		fmt.Println(<-ch)
 	}
+
+	fmt.Printf("Ran %d solutions in %v\n", len(solutions), time.Since(start))
 }
