@@ -1,8 +1,9 @@
-package main
+package day1_test
 
 import (
-	"strings"
 	"testing"
+
+	"github.com/johningve/adventofcode2023/day1"
 )
 
 var inputPart1 = `1abc2
@@ -11,10 +12,10 @@ a1b2c3d4e5f
 treb7uchet`
 
 func TestPart1(t *testing.T) {
-	var want uint64 = 142
-	got := Part1(strings.NewReader(inputPart1))
+	want := "142"
+	got := day1.Part1(inputPart1)
 	if got != want {
-		t.Errorf("Part1() = %d, want %d", got, want)
+		t.Errorf("Part1() = %s, want %s", got, want)
 	}
 }
 
@@ -27,9 +28,9 @@ zoneight234
 7pqrstsixteen`
 
 func TestPart2(t *testing.T) {
-	var want uint64 = 281
-	got := Part2(strings.NewReader(inputPart2))
+	want := "281"
+	got := day1.Part2(inputPart2)
 	if got != want {
-		t.Errorf("Part2() = %d, want %d", got, want)
+		t.Errorf("Part2() = %s, want %s", got, want)
 	}
 }

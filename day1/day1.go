@@ -1,25 +1,26 @@
-package main
+package day1
 
 import (
 	"bufio"
 	_ "embed"
-	"fmt"
-	"io"
+	"strconv"
 	"strings"
+
+	"github.com/johningve/adventofcode2023"
 )
 
 //go:embed input.txt
 var input string
 
-func main() {
-	fmt.Println(Part1(strings.NewReader(input)))
-	fmt.Println(Part2(strings.NewReader(input)))
+func init() {
+	adventofcode2023.AddSolutionPart1(1, func() string { return Part1(input) })
+	adventofcode2023.AddSolutionPart2(1, func() string { return Part2(input) })
 }
 
-func solve(input io.Reader, getDigit func(str string, i int) (uint64, bool)) uint64 {
+func solve(input string, getDigit func(str string, i int) (uint64, bool)) uint64 {
 	var sum uint64 = 0
 
-	scanner := bufio.NewScanner(input)
+	scanner := bufio.NewScanner(strings.NewReader(input))
 	for scanner.Scan() {
 		var (
 			firstDigit uint64
@@ -51,8 +52,8 @@ func getDigit(str string, i int) (uint64, bool) {
 	return 0, false
 }
 
-func Part1(input io.Reader) uint64 {
-	return solve(input, getDigit)
+func Part1(input string) string {
+	return strconv.FormatUint(solve(input, getDigit), 10)
 }
 
 var digits = map[string]uint64{
@@ -80,13 +81,12 @@ func getSpelledDigit(str string, i int) (uint64, bool) {
 	return 0, false
 }
 
-func Part2(input io.Reader) uint64 {
-
-	return solve(input, func(str string, i int) (uint64, bool) {
+func Part2(input string) string {
+	return strconv.FormatUint(solve(input, func(str string, i int) (uint64, bool) {
 		d, ok := getDigit(str, i)
 		if ok {
 			return d, ok
 		}
 		return getSpelledDigit(str, i)
-	})
+	}), 10)
 }
