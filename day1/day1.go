@@ -56,25 +56,39 @@ func Part1(input string) string {
 	return strconv.FormatUint(solve(input, getDigit), 10)
 }
 
-var digits = map[string]uint64{
-	"one":   1,
-	"two":   2,
-	"three": 3,
-	"four":  4,
-	"five":  5,
-	"six":   6,
-	"seven": 7,
-	"eight": 8,
-	"nine":  9,
-}
-
 func getSpelledDigit(str string, i int) (uint64, bool) {
-	for k, v := range digits {
-		if len(str)-i < len(k) {
+	type digit struct {
+		spelling string
+		digit    uint8
+	}
+
+	minLength := 3
+	var digitsByLen = [][]digit{
+		{
+			{"one", 1},
+			{"two", 2},
+			{"six", 6},
+		},
+		{
+			{"four", 4},
+			{"five", 5},
+			{"nine", 9},
+		},
+		{
+			{"seven", 7},
+			{"eight", 8},
+		},
+	}
+
+	for l, digits := range digitsByLen {
+		length := minLength + l
+		if len(str)-i < length {
 			continue
 		}
-		if str[i:i+len(k)] == k {
-			return v, true
+		for _, d := range digits {
+			if str[i:i+length] == d.spelling {
+				return uint64(d.digit), true
+			}
 		}
 	}
 	return 0, false
