@@ -26,7 +26,7 @@ func main() {
 	date := time.Now().Local()
 
 	flag.IntVar(&day, "day", date.Day(), "The day to download input for. By default, the current day is used.")
-	flag.StringVar(&sessionFile, "session", "", "Path to a file containing the session cookie.")
+	flag.StringVar(&sessionFile, "session", "session", "Path to a file containing the session cookie.")
 	flag.StringVar(&baseDir, "dir", wd, "Base directory to save input files to. By default, the current directory is used.")
 	flag.BoolVar(&all, "all", false, "Download input for all days up to the chosen day.")
 	flag.BoolVar(&stub, "stub", false, "Create empty files instead of downloading input.")
@@ -37,12 +37,14 @@ func main() {
 		panic(fmt.Sprintf("Failed to get absolute path for base directory: %v", err))
 	}
 
-	sessionBuf, err := os.ReadFile(filepath.Join(absBaseDir, sessionFile))
-	if err != nil {
-		panic(fmt.Sprintf("Failed to read session file: %v", err))
+	var session string
+	if !stub {
+		sessionBuf, err := os.ReadFile(filepath.Join(absBaseDir, sessionFile))
+		if err != nil {
+			panic(fmt.Sprintf("Failed to read session file: %v", err))
+		}
+		session = strings.TrimSpace(string(sessionBuf))
 	}
-
-	session := strings.TrimSpace(string(sessionBuf))
 
 	if all {
 		fmt.Printf("Downloading input for all days up to day %d to %s\n", day, absBaseDir)
