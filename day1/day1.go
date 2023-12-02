@@ -75,6 +75,7 @@ func getSpelledDigit(str string, i int) (uint64, bool) {
 			{"nine", 9},
 		},
 		{
+			{"three", 3},
 			{"seven", 7},
 			{"eight", 8},
 		},
