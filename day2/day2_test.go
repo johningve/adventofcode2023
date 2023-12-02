@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/johningve/adventofcode2023/day2"
+	"github.com/johningve/adventofcode2023/testutil"
 )
 
 var input = `Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
@@ -13,17 +14,9 @@ Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
 Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green`
 
 func TestPart1(t *testing.T) {
-	want := "8"
-	got := day2.Part1(input)
-	if got != want {
-		t.Errorf("Part1() = %s, want %s", got, want)
-	}
+	testutil.RunTest(t, day2.Part1, input, "8")
 }
 
 func TestPart2(t *testing.T) {
-	want := "2286"
-	got := day2.Part2(input)
-	if got != want {
-		t.Errorf("Part2() = %s, want %s", got, want)
-	}
+	testutil.RunTest(t, day2.Part2, input, "2286")
 }
