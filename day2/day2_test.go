@@ -17,6 +17,14 @@ func TestPart1(t *testing.T) {
 	testutil.RunTest(t, day2.Part1, input, "8")
 }
 
+func BenchmarkPart1(b *testing.B) {
+	testutil.RunBench(b, day2.Part1, input)
+}
+
 func TestPart2(t *testing.T) {
 	testutil.RunTest(t, day2.Part2, input, "2286")
+}
+
+func BenchmarkPart2(b *testing.B) {
+	testutil.RunBench(b, day2.Part2, input)
 }

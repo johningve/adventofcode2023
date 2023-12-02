@@ -16,6 +16,10 @@ func TestPart1(t *testing.T) {
 	testutil.RunTest(t, day1.Part1, inputPart1, "142")
 }
 
+func BenchmarkPart1(b *testing.B) {
+	testutil.RunBench(b, day1.Part1, inputPart1)
+}
+
 var inputPart2 = `two1nine
 eightwothree
 abcone2threexyz
@@ -26,4 +30,8 @@ zoneight234
 
 func TestPart2(t *testing.T) {
 	testutil.RunTest(t, day1.Part2, inputPart2, "281")
+}
+
+func BenchmarkPart2(b *testing.B) {
+	testutil.RunBench(b, day1.Part2, inputPart2)
 }
