@@ -19,3 +19,11 @@ func TestPart1(t *testing.T) {
 		t.Errorf("Part1() = %s, want %s", got, want)
 	}
 }
+
+func TestPart2(t *testing.T) {
+	want := "2286"
+	got := day2.Part2(input)
+	if got != want {
+		t.Errorf("Part2() = %s, want %s", got, want)
+	}
+}
