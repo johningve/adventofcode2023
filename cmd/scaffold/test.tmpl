@@ -1,0 +1,26 @@
+package day{{.Day}}_test
+
+import (
+	"testing"
+
+	"github.com/johningve/adventofcode2023/day{{.Day}}"
+	"github.com/johningve/adventofcode2023/testutil"
+)
+
+var input = ``
+
+func TestPart1(t *testing.T) {
+	testutil.RunTest(t, day{{.Day}}.Part1, input, "")
+}
+
+func BenchmarkPart1(b *testing.B) {
+	testutil.RunBench(b, day{{.Day}}.Part1, input)
+}
+
+func TestPart2(t *testing.T) {
+	testutil.RunTest(t, day{{.Day}}.Part2, input, "")
+}
+
+func BenchmarkPart2(b *testing.B) {
+	testutil.RunBench(b, day{{.Day}}.Part2, input)
+}

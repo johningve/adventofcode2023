@@ -1,0 +1,23 @@
+package day{{.Day}}
+
+import (
+	_ "embed"
+
+	"github.com/johningve/adventofcode2023"
+)
+
+//go:embed input.txt
+var input string
+
+func init() {
+	adventofcode2023.AddSolutionPart1({{.Day}}, func() string { return Part1(input) })
+	adventofcode2023.AddSolutionPart2({{.Day}}, func() string { return Part2(input) })
+}
+
+func Part1(input string) string {
+	return ""
+}
+
+func Part2(input string) string {
+	return ""
+}

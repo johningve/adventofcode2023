@@ -12,11 +12,13 @@ import (
 )
 
 func main() {
-	var day int
-	var sessionFile string
-	var baseDir string
-	var all bool
-	var stub bool
+	var (
+		day         int
+		sessionFile string
+		baseDir     string
+		all         bool
+		stub        bool
+	)
 
 	wd, err := os.Getwd()
 	if err != nil {
