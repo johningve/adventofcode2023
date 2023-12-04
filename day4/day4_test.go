@@ -23,7 +23,7 @@ func BenchmarkPart1(b *testing.B) {
 }
 
 func TestPart2(t *testing.T) {
-	testutil.RunTest(t, day4.Part2, input, "")
+	testutil.RunTest(t, day4.Part2, input, "30")
 }
 
 func BenchmarkPart2(b *testing.B) {
