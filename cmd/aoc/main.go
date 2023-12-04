@@ -8,6 +8,7 @@ import (
 	_ "github.com/johningve/adventofcode2023/day1"
 	_ "github.com/johningve/adventofcode2023/day2"
 	_ "github.com/johningve/adventofcode2023/day3"
+	_ "github.com/johningve/adventofcode2023/day4"
 )
 
 func main() {
